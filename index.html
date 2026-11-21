@@ -115,6 +115,12 @@ p { margin:0 0 6px; }
   <footer class="foot"><span>PRAKAMYA | SVARAGUARD | Round 1 Abstract</span><span>Page 3</span></footer>
 </section>
 <script>
+function setLabel(btn, playing) {
+  var pill = btn.querySelector('.pill');
+  pill.innerHTML = playing
+    ? '<span class="play">&#10074;&#10074;</span> Pause'
+    : '<span class="play">&#9654;</span> Click here to listen: our team explains this';
+}
 document.querySelectorAll('.listen').forEach(function (btn) {
   var audio = document.getElementById('a-' + btn.dataset.audio);
   btn.addEventListener('click', function () {
@@ -123,14 +129,16 @@ document.querySelectorAll('.listen').forEach(function (btn) {
       document.querySelectorAll('.listen').forEach(function (b) { b.classList.remove('playing'); });
       audio.play();
       btn.classList.add('playing');
+      setLabel(btn, true);
       var pl = document.querySelector('.player[data-key="' + btn.dataset.audio + '"]');
       if (pl) pl.hidden = false;
     } else {
       audio.pause();
       btn.classList.remove('playing');
+      setLabel(btn, false);
     }
   });
-  audio.addEventListener('ended', function () { btn.classList.remove('playing'); });
+  audio.addEventListener('ended', function () { btn.classList.remove('playing'); setLabel(btn, false); });
 });
 
 function fmt(t) { if (!isFinite(t)) return '0:00'; var m = Math.floor(t/60), x = Math.floor(t%60); return m + ':' + (x < 10 ? '0' : '') + x; }
