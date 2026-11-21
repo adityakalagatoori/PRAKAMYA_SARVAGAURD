@@ -1,100 +1,113 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PRAKAMYA SVARAGUARD: Round 1 Abstract</title>
+<title>SVARAGUARD: Round 1 Abstract</title>
 <style>
-  :root { --ink:#21163A; --violet:#4C1D95; --lav:#8B5CF6; color-scheme: light; }
-  * { box-sizing: border-box; }
-  body { margin:0; min-height:100vh; color:var(--ink); font: 16px/1.55 Arial, Helvetica, sans-serif;
-         background: linear-gradient(180deg,#E6DBFF 0%,#FFFFFF 70%);
-         padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
-         padding-top: max(20px, env(safe-area-inset-top, 0px)); padding-bottom: 40px; }
-  body::before { content:""; position:fixed; inset:0; pointer-events:none; z-index:-1;
-         background: radial-gradient(circle at 88% 8%, rgba(139,92,246,.22), transparent 42%),
-                     radial-gradient(circle at 6% 92%, rgba(217,70,239,.14), transparent 40%); }
-  main { max-width: 760px; margin: 0 auto; }
-  h1 { color: var(--violet); font-size: 1.6rem; line-height:1.25; text-align:center; text-wrap: balance; margin: 8px 0 6px; }
-  h2 { color: var(--violet); font-size: 1.12rem; margin: 26px 0 8px; }
-  p { margin: 0 0 10px; }
-  .team { text-align:center; color:#4a3b6b; font-size:.95rem; }
-  .item { padding-left: 14px; text-indent: -14px; }
-  .glass { background: rgba(255,255,255,.62); border: 1.5px solid rgba(139,92,246,.7); border-radius: 16px;
-           box-shadow: 0 8px 28px rgba(76,29,149,.12), inset 0 1px 0 rgba(255,255,255,.9);
-           backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-           padding: 14px 16px; margin: 12px 0; }
-  .highlight p { margin:0; font-size: 1rem; }
-  .listen { display:flex; flex-direction:column; gap:10px; align-items:stretch; }
-  .btn { align-self:flex-start; cursor:pointer; border:0; border-radius:999px; padding:11px 18px;
-         font: bold 15px Arial, sans-serif; color:var(--violet);
-         background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(233,220,255,.85));
-         border:1.5px solid rgba(139,92,246,.8); box-shadow: 0 4px 14px rgba(139,92,246,.25); }
-  .btn:active { transform: translateY(1px); }
-  .btn.playing { background: var(--violet); color:#fff; }
-  audio { width:100%; }
-  figure { margin: 16px 0; text-align:center; }
-  figure img { width:100%; height:auto; border-radius: 10px; display:block; }
-  figcaption { font-size:.85rem; color:#5C5470; margin-top:8px; }
-  h3 { color: var(--violet); font-size: 1rem; margin: 0 0 8px; }
-  .refs p { font-size: .85rem; line-height:1.4; padding-left: 16px; text-indent: -16px; }
+:root { --ink:#21163A; --violet:#4C1D95; --lav:#8B5CF6; color-scheme: light; }
+* { box-sizing: border-box; }
+body { margin:0; color:var(--ink); font: 14px/1.5 Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg,#E6DBFF 0%,#FFFFFF 100%);
+  padding: 20px max(16px, env(safe-area-inset-right, 0px)) 40px max(16px, env(safe-area-inset-left, 0px)); }
+.page { position:relative; max-width:720px; margin:0 auto 28px; min-height: 980px;
+  background: linear-gradient(180deg,#E6DBFF 0%,#FFFFFF 100%);
+  border:1px solid var(--lav); border-radius:14px; padding: 64px 26px 56px; overflow:hidden; }
+.page::before { content:""; position:absolute; inset:0; pointer-events:none;
+  background: radial-gradient(circle at 88% 6%, rgba(139,92,246,.20), transparent 40%),
+              radial-gradient(circle at 6% 94%, rgba(217,70,239,.12), transparent 38%); }
+.topbar { position:absolute; top:14px; right:18px; left:18px; display:flex; justify-content:flex-end; align-items:center; z-index:2; }
+.listen { display:flex; align-items:center; gap:8px; border:0; background:none; cursor:pointer; padding:0; font: inherit; }
+.arr { width:54px; height:12px; fill:none; stroke:var(--violet); stroke-width:1.6; flex:none; }
+.tap { font-size:11px; font-weight:bold; color:var(--violet); white-space:nowrap; }
+.pill { display:inline-flex; align-items:center; gap:8px; white-space:nowrap; border-radius:999px; padding:8px 14px;
+  font: bold 12px Arial, sans-serif; color:#3B1A7A;
+  background: rgba(255,255,255,.72); border:1.5px solid rgba(139,92,246,.8);
+  box-shadow: 0 6px 18px rgba(139,92,246,.22), inset 0 1px 0 rgba(255,255,255,.9);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.play { color:var(--violet); font-size:11px; }
+.listen.playing .pill { background: var(--violet); color:#fff; }
+.listen.playing .play { color:#fff; }
+.content { position:relative; z-index:1; }
+h1 { color:var(--violet); font-size:20px; line-height:1.25; text-align:center; margin:6px 0 8px; text-wrap:balance; }
+h2 { color:var(--violet); font-size:14px; margin:0 0 6px; }
+h3 { color:var(--violet); font-size:13px; margin:0 0 8px; text-align:center; }
+p { margin:0 0 6px; }
+.team { text-align:center; color:#4A3B6B; font-size:12px; }
+.item { padding-left:14px; text-indent:-14px; }
+.glass { background: rgba(255,255,255,.72); border:1.5px solid rgba(139,92,246,.7); border-radius:12px;
+  box-shadow: 0 6px 20px rgba(76,29,149,.10), inset 0 1px 0 rgba(255,255,255,.9);
+  padding:10px 14px; margin:8px 0; }
+.highlight p { margin:0; font-size:13px; }
+.fig { text-align:center; padding:12px 14px; margin:10px 0; }
+.fig img { width:100%; height:auto; display:block; border-radius:8px; }
+.cap { font-size:11px; color:#5C5470; margin:4px 0 0; }
+.refs .ref { font-size:10px; line-height:1.35; padding-left:14px; text-indent:-14px; color:var(--ink); }
+.foot { position:absolute; left:26px; right:26px; bottom:18px; display:flex; justify-content:space-between; font-size:9px; color:#6B5B8C; z-index:1; }
+@media (max-width: 600px) { .page { min-height:auto; padding:72px 16px 56px; } .topbar { top:10px; left:10px; right:10px; } .tap { display:none; } }
 </style></head>
-<body><main>
+<body>
+<section class="page" id="page1">
+  <div class="topbar"><button class="listen" data-audio="p1" aria-label="Listen to this page"><svg class="arr" viewBox="0 0 60 12" aria-hidden="true"><path d="M0 6 H54" /><path d="M54 6 L46 1 M54 6 L46 11" /></svg><span class="tap">Tap to hear</span><span class="pill"><span class="play">&#9654;</span> Click here to listen: our team explains this</span></button><audio id="a-p1" preload="none" src="audio/p1.wav"></audio></div>
+  <div class="content">
 <h1>SVARAGUARD: Voice-Only Affect Intelligence for Debt Collections</h1>
 <p class="team"><b>Team:</b> PRAKAMYA (ID TM-3ECDDC28793) | <b>Problem 1:</b> Paralinguistic State Detection from Voice, Not Transcript</p>
 <div class="glass highlight"><p><b>Central innovation:</b> uncertainty-aware, telephony-robust acoustic intelligence with structurally enforced borrower protection.</p></div>
-<div class="glass listen"><button class="btn" data-audio="p1">&#9654; Listen to the team: problem and domain</button><audio id="a-p1" controls preload="none" src="audio/p1.wav"></audio></div>
-<h2>1. Problem and Domain</h2>
-<p>We address Problem 1: estimating vocal-affective state from speech alone. A borrower in hardship must reach a human, never a bot's pressure; transcripts record words, not how they are said. "I'll pay next week" can express different vocal states with identical words.</p>
-<h2>2. Understanding of the Challenge</h2>
-<p>Affect must be separated from content, speaker and channel. Encoders can carry lexical information; reshuffling public corpora by transcript clusters changes reported results (Pesan et al., 2024). Accent, age, handset and noisy narrowband audio can mimic affect, so distress is scored against each speaker's session baseline, not absolute pitch. The system must estimate arousal and valence from sound, state uncertainty, and never let a score trigger pressure.</p>
-<div class="glass listen"><button class="btn" data-audio="p2">&#9654; Listen to the team: approach and safety</button><audio id="a-p2" controls preload="none" src="audio/p2.wav"></audio></div>
-<h2>3. Proposed Approach and Architecture</h2>
-<p>A workflow orchestrator passes each 2-second window through five specialist components.</p>
+<div class="glass"><h2>1. Problem and Domain</h2>
+<p class="">We address Problem 1: estimating vocal-affective state from speech alone. A borrower in hardship must reach a human, never a bot's pressure; transcripts record words, not how they are said. "I'll pay next week" can express different vocal states with identical words.</p></div>
+<div class="glass"><h2>2. Understanding of the Challenge</h2>
+<p class="">Affect must be separated from content, speaker and channel. Encoders can carry lexical information; reshuffling public corpora by transcript clusters changes reported results (Pesan et al., 2024). Accent, age, handset and noisy narrowband audio can mimic affect, so distress is scored against each speaker's session baseline, not absolute pitch. The system must estimate arousal and valence from sound, state uncertainty, and never let a score trigger pressure.</p></div>
+<div class="glass"><h2>3. Proposed Approach and Architecture</h2>
+<p class="">A workflow orchestrator passes each 2-second window through five specialist components.</p>
 <p class="item">1. <b>Channel assessment:</b> estimates bandwidth, signal-to-noise ratio and degradation; severe cases go straight to abstention.</p>
 <p class="item">2. <b>Affect estimation:</b> outputs continuous arousal and valence (each −1 to +1) and probabilities for seven states: calm, stressed, angry, evasive, distressed, resigned, cooperative. A causal GRU reads frame-level eGeMAPS descriptors (Eyben et al., 2016); WavLM-Base or HuBERT-Base replaces it only if p95 CPU latency is under 500 ms. A gradient-reversal lexical adversary (Ganin et al., 2016) in training discourages word-dependent representations; inference is transcript-free. Normalisation is population-based at first, session-local thereafter, frozen after any distress flag; no persistent voice profile is kept.</p>
 <p class="item">3. <b>Uncertainty assessment:</b> temperature scaling (Guo et al., 2017) calibrates discrete-state probabilities; arousal and valence use ensemble prediction intervals. A risk–coverage curve on a calibration split sets abstention.</p>
 <p class="item">4. <b>Policy enforcement:</b> the gate maps states to four actions: continue, slow down and empathise, offer a policy-approved restructuring option, or hand off to a human.</p>
 <p class="item">5. <b>Handoff and audit:</b> a window whose calibrated distress probability exceeds the pre-registered threshold latches protection at once; later calm windows cannot clear it. Only authorised human resolution clears it. Unacknowledged handoff escalates to a supervisor. If the gate fails, collection pressure fails closed.</p>
-<p>A turn's state is the confidence-weighted vote of non-abstained windows, never overriding a latch; an all-abstained turn goes to human review. Training simulates telephone audio (8 kHz, 300–3,400 Hz, G.711 or AMR-NB, background noise); runtime uses audio as received.</p>
-<p>The Acoustic Commitment-Consistency Indicator (0–1) measures arousal, valence and prosody consistency across each timestamped promise-to-pay segment. It is exploratory; it cannot trigger pressure, affect eligibility or establish honesty.</p>
-<p>Labels: CREMA-D (Cao et al., 2014) gives categorical labels, mapped provisionally (anger→angry; neutral→calm proxy; fear→stressed only if supported; others merged). Windows need aligned arousal and valence labels from a consented role-play corpus, rated per window by two annotators. MSP-Podcast (Lotfian and Busso, 2019) gives turn-level supervision under academic terms.</p>
-<h2>4. Minimum Viable Scope</h2>
-<p>Mandatory: (a) file or microphone input producing a time-resolved arousal and valence track and a discrete state per turn, at least once per second, under 500 ms per update on a standard laptop CPU; (b) distress alert with human handoff and the four-action decision layer; (c) CCC and UAR on speaker-independent held-out data, a content-invariance test and a fairness breakdown.</p>
-<p>Stretch: commitment-consistency validation against a transcript-only baseline on marked proxy outcomes.</p>
-<h2>5. Evaluation Plan</h2>
-<p>Discrete states use speaker-independent CREMA-D folds (7,442 clips, 91 actors). Self-recorded English and Hindi role-played calls are scored clean and after 8 kHz narrowband simulation. Development and test sets are speaker-disjoint; the test set is never used for tuning.</p>
-<p>Metrics: CCC and ICC between raters (arousal, valence); UAR and Krippendorff's alpha (states); distress recall at the pre-registered false-alarm rate; post-flag violation rate (target zero), reported separately from missed-distress rate; interval coverage and width; p50 and p95 latency. Report group sizes and bootstrap 95% intervals.</p>
-<p>Content invariance: on identical-transcript pairs, a text-only model should be at chance while the acoustic model discriminates above chance (pairwise ranking accuracy). A Whisper probe follows. Baselines: eGeMAPS with gradient boosting or SVR; a text-only classifier. Ablations: adversary, codec augmentation, abstention, encoder. Fairness: CCC, UAR and distress recall by gender, age band and region or language; inconclusive if subgroups are small.</p>
-<p>Falsified if matched-pair discrimination is not above chance or the text-only baseline.</p>
-<div class="glass listen"><button class="btn" data-audio="p3">&#9654; Listen to the team: architecture and flow</button><audio id="a-p3" controls preload="none" src="audio/p3.wav"></audio></div>
-<h2>6. Novelty and Differentiation</h2>
-<p>Existing voice-emotion and contact-centre analytics mostly score transcripts or classify acoustics; to our knowledge, few combine lexical-invariance tests, telephony-aware abstention and a latched protection gate.</p>
-<h2>7. Feasibility and Team</h2>
-<p>Aditya Kalagatoori (team leader): signal engineering, telephony, latency and the gate. Thakur Aswin Singh: machine learning, encoder, fairness audit. Preenithi: data, consent, annotation, matched-text set.</p>
-<h2>8. Risks and Limitations</h2>
-<p>Acted corpora overstate affect; MSP-Podcast is turn-level and not telephone-band; no licensed Indian-language dimensional corpus is known; 8 kHz labels are scarce; licences and latency are open. Mitigations: eGeMAPS fallback, abstention, counsel review.</p>
-<h2>9. Responsible Design and Expected Impact</h2>
-<p>The gate blocks collection pressure, never escalation to a human. Tests cover latching, overrides, conflicting predictions, handoff failure and audit logging. Consent is specific and withdrawable; recordings are kept for a disclosed period and access is role-restricted. Data is never used for credit decisions. The brief treats emotion inference as sensitive; counsel confirms DPDP and RBI obligations.</p>
-<p>Expected impact: fewer distressed borrowers reach pressure, measured by post-flag violation (target zero) and missed-distress rate.</p>
-<h2>Architecture and flow</h2>
-<figure class="glass"><img src="images/SvaraGuard_Voice_Intelligence_Architecture.png" alt="Figure 1: user flow and system architecture."><figcaption>Figure 1: user flow and system architecture.</figcaption></figure>
-<figure class="glass"><img src="images/Holographic_Audio_Affect_Learning_Pipeline.png" alt="Figure 2: lexical-invariance training and evaluation pipeline."><figcaption>Figure 2: lexical-invariance training and evaluation pipeline.</figcaption></figure>
-<figure class="glass"><img src="images/Holographic_Protection_and_Evaluation_Framework.png" alt="Figure 3: protection, handoff, streaming and evaluation."><figcaption>Figure 3: protection, handoff, streaming and evaluation.</figcaption></figure>
-<div class="glass refs"><h3>References</h3>
-<p>[1] Cao, H., Cooper, D. G., Keutmann, M. K., Gur, R. C., Nenkova, A., &amp; Verma, R. (2014). CREMA-D: Crowd-sourced emotional multimodal actors dataset. <i>IEEE Transactions on Affective Computing</i>, 5(4), 377–390. doi:10.1109/TAFFC.2014.2336244</p>
-<p>[2] Eyben, F., et al. (2016). The Geneva Minimalistic Acoustic Parameter Set (GeMAPS) for voice research and affective computing. <i>IEEE Transactions on Affective Computing</i>, 7(2), 190–202. doi:10.1109/TAFFC.2015.2457417</p>
-<p>[3] Ganin, Y., et al. (2016). Domain-adversarial training of neural networks. <i>Journal of Machine Learning Research</i>, 17(59), 1–35.</p>
-<p>[4] Guo, C., Pleiss, G., Sun, Y., &amp; Weinberger, K. Q. (2017). On calibration of modern neural networks. <i>Proceedings of ICML</i>, PMLR 70, 1321–1330.</p>
-<p>[5] Lotfian, R., &amp; Busso, C. (2019). Building naturalistic emotionally balanced speech corpus by retrieving emotional speech from existing podcast recordings. <i>IEEE Transactions on Affective Computing</i>.</p>
-<p>[6] Pešán, J., Kesiraju, S., Burget, L., &amp; Černocký, J. (2024). Beyond the labels: Unveiling text-dependency in paralinguistic speech recognition datasets. arXiv:2403.07767.</p>
-</div>
-</main>
+<p class="">A turn's state is the confidence-weighted vote of non-abstained windows, never overriding a latch; an all-abstained turn goes to human review. Training simulates telephone audio (8 kHz, 300–3,400 Hz, G.711 or AMR-NB, background noise); runtime uses audio as received.</p>
+<p class="">The Acoustic Commitment-Consistency Indicator (0–1) measures arousal, valence and prosody consistency across each timestamped promise-to-pay segment. It is exploratory; it cannot trigger pressure, affect eligibility or establish honesty.</p>
+<p class="">Labels: CREMA-D (Cao et al., 2014) gives categorical labels, mapped provisionally (anger→angry; neutral→calm proxy; fear→stressed only if supported; others merged). Windows need aligned arousal and valence labels from a consented role-play corpus, rated per window by two annotators. MSP-Podcast (Lotfian and Busso, 2019) gives turn-level supervision under academic terms.</p></div>
+  </div>
+  <footer class="foot"><span>PRAKAMYA | SVARAGUARD | Round 1 Abstract</span><span>Page 1</span></footer>
+</section>
+<section class="page" id="page2">
+  <div class="topbar"><button class="listen" data-audio="p2" aria-label="Listen to this page"><svg class="arr" viewBox="0 0 60 12" aria-hidden="true"><path d="M0 6 H54" /><path d="M54 6 L46 1 M54 6 L46 11" /></svg><span class="tap">Tap to hear</span><span class="pill"><span class="play">&#9654;</span> Click here to listen: our team explains this</span></button><audio id="a-p2" preload="none" src="audio/p2.wav"></audio></div>
+  <div class="content">
+<div class="glass"><h2>4. Minimum Viable Scope</h2>
+<p class="">Mandatory: (a) file or microphone input producing a time-resolved arousal and valence track and a discrete state per turn, at least once per second, under 500 ms per update on a standard laptop CPU; (b) distress alert with human handoff and the four-action decision layer; (c) CCC and UAR on speaker-independent held-out data, a content-invariance test and a fairness breakdown.</p>
+<p class="">Stretch: commitment-consistency validation against a transcript-only baseline on marked proxy outcomes.</p></div>
+<div class="glass"><h2>5. Evaluation Plan</h2>
+<p class="">Discrete states use speaker-independent CREMA-D folds (7,442 clips, 91 actors). Self-recorded English and Hindi role-played calls are scored clean and after 8 kHz narrowband simulation. Development and test sets are speaker-disjoint; the test set is never used for tuning.</p>
+<p class="">Metrics: CCC and ICC between raters (arousal, valence); UAR and Krippendorff's alpha (states); distress recall at the pre-registered false-alarm rate; post-flag violation rate (target zero), reported separately from missed-distress rate; interval coverage and width; p50 and p95 latency. Report group sizes and bootstrap 95% intervals.</p>
+<p class="">Content invariance: on identical-transcript pairs, a text-only model should be at chance while the acoustic model discriminates above chance (pairwise ranking accuracy). A Whisper probe follows. Baselines: eGeMAPS with gradient boosting or SVR; a text-only classifier. Ablations: adversary, codec augmentation, abstention, encoder. Fairness: CCC, UAR and distress recall by gender, age band and region or language; inconclusive if subgroups are small.</p>
+<p class="">Falsified if matched-pair discrimination is not above chance or the text-only baseline.</p></div>
+<div class="glass"><h2>6. Novelty and Differentiation</h2>
+<p class="">Existing voice-emotion and contact-centre analytics mostly score transcripts or classify acoustics; to our knowledge, few combine lexical-invariance tests, telephony-aware abstention and a latched protection gate.</p></div>
+<div class="glass"><h2>7. Feasibility and Team</h2>
+<p class="">Aditya Kalagatoori (team leader): signal engineering, telephony, latency and the gate. Thakur Aswin Singh: machine learning, encoder, fairness audit. Preenithi: data, consent, annotation, matched-text set.</p></div>
+<div class="glass"><h2>8. Risks and Limitations</h2>
+<p class="">Acted corpora overstate affect; MSP-Podcast is turn-level and not telephone-band; no licensed Indian-language dimensional corpus is known; 8 kHz labels are scarce; licences and latency are open. Mitigations: eGeMAPS fallback, abstention, counsel review.</p></div>
+<div class="glass"><h2>9. Responsible Design and Expected Impact</h2>
+<p class="">The gate blocks collection pressure, never escalation to a human. Tests cover latching, overrides, conflicting predictions, handoff failure and audit logging. Consent is specific and withdrawable; recordings are kept for a disclosed period and access is role-restricted. Data is never used for credit decisions. The brief treats emotion inference as sensitive; counsel confirms DPDP and RBI obligations.</p>
+<p class="">Expected impact: fewer distressed borrowers reach pressure, measured by post-flag violation (target zero) and missed-distress rate.</p></div>
+  </div>
+  <footer class="foot"><span>PRAKAMYA | SVARAGUARD | Round 1 Abstract</span><span>Page 2</span></footer>
+</section>
+<section class="page" id="page3">
+  <div class="topbar"><button class="listen" data-audio="p3" aria-label="Listen to this page"><svg class="arr" viewBox="0 0 60 12" aria-hidden="true"><path d="M0 6 H54" /><path d="M54 6 L46 1 M54 6 L46 11" /></svg><span class="tap">Tap to hear</span><span class="pill"><span class="play">&#9654;</span> Click here to listen: our team explains this</span></button><audio id="a-p3" preload="none" src="audio/p3.wav"></audio></div>
+  <div class="content">
+<div class="glass fig"><h3>Architecture and User Flow</h3><img src="images/SvaraGuard_Voice_Intelligence_Architecture.png" alt="Architecture and User Flow"><p class="cap">User flow: a call starts, audio is analysed in 2-second windows, affect is estimated, the policy gate decides the action, and the audit closes the loop.</p><p class="cap">The deterministic safety gate sits outside the models, so no model output can override a collection action.</p></div>
+<div class="glass fig"><h3>Lexical-Invariance Training and Evaluation Pipeline</h3><img src="images/Holographic_Audio_Affect_Learning_Pipeline.png" alt="Lexical-Invariance Training and Evaluation Pipeline"><p class="cap">Training: matched-text pairs and a gradient-reversal lexical adversary, with speaker-disjoint splits.</p><p class="cap">Calibration uses a held-out split; evaluation runs on the untouched test set.</p></div>
+<div class="glass fig"><h3>Protection, Handoff, Streaming and Evaluation</h3><img src="images/Holographic_Protection_and_Evaluation_Framework.png" alt="Protection, Handoff, Streaming and Evaluation"><p class="cap">Protection: a distress flag latches the protected state; later calm predictions cannot clear it.</p><p class="cap">Only authorised human resolution clears it; streaming windows update every second.</p></div>
+<div class="glass refs"><h3>References</h3><p class="ref">[1] Cao, H., Cooper, D. G., Keutmann, M. K., Gur, R. C., Nenkova, A., &amp; Verma, R. (2014). CREMA-D: Crowd-sourced emotional multimodal actors dataset. <i>IEEE Transactions on Affective Computing</i>, 5(4), 377–390. doi:10.1109/TAFFC.2014.2336244</p><p class="ref">[2] Eyben, F., et al. (2016). The Geneva Minimalistic Acoustic Parameter Set (GeMAPS) for voice research and affective computing. <i>IEEE Transactions on Affective Computing</i>, 7(2), 190–202. doi:10.1109/TAFFC.2015.2457417</p><p class="ref">[3] Ganin, Y., et al. (2016). Domain-adversarial training of neural networks. <i>Journal of Machine Learning Research</i>, 17(59), 1–35.</p><p class="ref">[4] Guo, C., Pleiss, G., Sun, Y., &amp; Weinberger, K. Q. (2017). On calibration of modern neural networks. <i>Proceedings of ICML</i>, PMLR 70, 1321–1330.</p><p class="ref">[5] Lotfian, R., &amp; Busso, C. (2019). Building naturalistic emotionally balanced speech corpus by retrieving emotional speech from existing podcast recordings. <i>IEEE Transactions on Affective Computing</i>.</p><p class="ref">[6] Pešán, J., Kesiraju, S., Burget, L., &amp; Černocký, J. (2024). Beyond the labels: Unveiling text-dependency in paralinguistic speech recognition datasets. arXiv:2403.07767.</p></div>
+  </div>
+  <footer class="foot"><span>PRAKAMYA | SVARAGUARD | Round 1 Abstract</span><span>Page 3</span></footer>
+</section>
 <script>
-document.querySelectorAll('.btn').forEach(function (btn) {
+document.querySelectorAll('.listen').forEach(function (btn) {
   var audio = document.getElementById('a-' + btn.dataset.audio);
   btn.addEventListener('click', function () {
     if (audio.paused) {
       document.querySelectorAll('audio').forEach(function (a) { if (a !== audio) a.pause(); });
-      document.querySelectorAll('.btn').forEach(function (b) { b.classList.remove('playing'); });
+      document.querySelectorAll('.listen').forEach(function (b) { b.classList.remove('playing'); });
       audio.play();
       btn.classList.add('playing');
     } else {
