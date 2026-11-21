@@ -44,7 +44,10 @@ p { margin:0 0 6px; }
 .foot { position:absolute; left:26px; right:26px; bottom:18px; display:flex; justify-content:space-between; font-size:9px; color:#6B5B8C; z-index:1; }
 @media (max-width: 600px) { .page { min-height:auto; padding:72px 16px 56px; } .topbar { top:10px; left:10px; right:10px; } .tap { display:none; } }
 
-.player { display:flex; align-items:center; gap:8px; margin-top:16px; font-size:11px; color:var(--violet); }
+.topbar { flex-wrap:wrap; justify-content:flex-end; }
+.ctl { width:100%; display:flex; justify-content:flex-end; }
+.player { display:flex; align-items:center; gap:8px; margin-top:8px; font-size:11px; color:var(--violet); width:min(360px,100%); background:rgba(255,255,255,.9); border:1px solid rgba(139,92,246,.6); border-radius:12px; padding:6px 10px; box-shadow:0 6px 18px rgba(139,92,246,.2); }
+.player[hidden] { display:none; }
 .player .t { min-width:34px; font-variant-numeric: tabular-nums; }
 .player .left { text-align:right; }
 .player .bar { flex:1; height:8px; border-radius:8px; background: rgba(139,92,246,.18); cursor:pointer; position:relative; }
@@ -56,7 +59,7 @@ p { margin:0 0 6px; }
 </style></head>
 <body>
 <section class="page" id="page1">
-  <div class="topbar"><button class="listen" data-audio="p1" aria-label="Listen to this page"><svg class="arr" viewBox="0 0 60 12" aria-hidden="true"><path d="M0 6 H54" /><path d="M54 6 L46 1 M54 6 L46 11" /></svg><span class="tap">Tap to hear</span><span class="pill"><span class="play">&#9654;</span> Click here to listen: our team explains this</span></button><audio id="a-p1" preload="metadata" src="audio/p1_v2.wav"></audio></div>
+  <div class="topbar"><button class="listen" data-audio="p1" aria-label="Listen to this page"><svg class="arr" viewBox="0 0 60 12" aria-hidden="true"><path d="M0 6 H54" /><path d="M54 6 L46 1 M54 6 L46 11" /></svg><span class="tap">Tap to hear</span><span class="pill"><span class="play">&#9654;</span> Click here to listen: our team explains this</span></button><div class="ctl"><div class="player" data-key="p1" hidden><span class="t cur">0:00</span><div class="bar"><div class="fill"></div></div><span class="t left">-0:00</span><div class="speeds"><button type="button" data-rate="1" class="on">1&times;</button><button type="button" data-rate="1.5">1.5&times;</button><button type="button" data-rate="2">2&times;</button></div></div></div><audio id="a-p1" preload="metadata" src="audio/p1_v2.wav"></audio></div>
   <div class="content">
 <h1>SVARAGUARD: Voice-Only Affect Intelligence for Debt Collections</h1>
 <p class="team"><b>Team:</b> PRAKAMYA (ID TM-3ECDDC28793) | <b>Problem 1:</b> Paralinguistic State Detection from Voice, Not Transcript</p>
@@ -75,12 +78,11 @@ p { margin:0 0 6px; }
 <p class="">A turn's state is the confidence-weighted vote of non-abstained windows, never overriding a latch; an all-abstained turn goes to human review. Training simulates telephone audio (8 kHz, 300–3,400 Hz, G.711 or AMR-NB, background noise); runtime uses audio as received.</p>
 <p class="">The Acoustic Commitment-Consistency Indicator (0–1) measures arousal, valence and prosody consistency across each timestamped promise-to-pay segment. It is exploratory; it cannot trigger pressure, affect eligibility or establish honesty.</p>
 <p class="">Labels: CREMA-D (Cao et al., 2014) gives categorical labels, mapped provisionally (anger→angry; neutral→calm proxy; fear→stressed only if supported; others merged). Windows need aligned arousal and valence labels from a consented role-play corpus, rated per window by two annotators. MSP-Podcast (Lotfian and Busso, 2019) gives turn-level supervision under academic terms.</p></div>
-  <div class="player" data-key="p1"><span class="t cur">0:00</span><div class="bar"><div class="fill"></div></div><span class="t left">-0:00</span><div class="speeds"><button type="button" data-rate="1" class="on">1&times;</button><button type="button" data-rate="1.5">1.5&times;</button><button type="button" data-rate="2">2&times;</button></div></div>
   </div>
   <footer class="foot"><span>PRAKAMYA | SVARAGUARD | Round 1 Abstract</span><span>Page 1</span></footer>
 </section>
 <section class="page" id="page2">
-  <div class="topbar"><button class="listen" data-audio="p2" aria-label="Listen to this page"><svg class="arr" viewBox="0 0 60 12" aria-hidden="true"><path d="M0 6 H54" /><path d="M54 6 L46 1 M54 6 L46 11" /></svg><span class="tap">Tap to hear</span><span class="pill"><span class="play">&#9654;</span> Click here to listen: our team explains this</span></button><audio id="a-p2" preload="metadata" src="audio/p2_v2.wav"></audio></div>
+  <div class="topbar"><button class="listen" data-audio="p2" aria-label="Listen to this page"><svg class="arr" viewBox="0 0 60 12" aria-hidden="true"><path d="M0 6 H54" /><path d="M54 6 L46 1 M54 6 L46 11" /></svg><span class="tap">Tap to hear</span><span class="pill"><span class="play">&#9654;</span> Click here to listen: our team explains this</span></button><div class="ctl"><div class="player" data-key="p2" hidden><span class="t cur">0:00</span><div class="bar"><div class="fill"></div></div><span class="t left">-0:00</span><div class="speeds"><button type="button" data-rate="1" class="on">1&times;</button><button type="button" data-rate="1.5">1.5&times;</button><button type="button" data-rate="2">2&times;</button></div></div></div><audio id="a-p2" preload="metadata" src="audio/p2_v2.wav"></audio></div>
   <div class="content">
 <div class="glass"><h2>4. Minimum Viable Scope</h2>
 <p class="">Mandatory: (a) file or microphone input producing a time-resolved arousal and valence track and a discrete state per turn, at least once per second, under 500 ms per update on a standard laptop CPU; (b) distress alert with human handoff and the four-action decision layer; (c) CCC and UAR on speaker-independent held-out data, a content-invariance test and a fairness breakdown.</p>
@@ -99,18 +101,16 @@ p { margin:0 0 6px; }
 <div class="glass"><h2>9. Responsible Design and Expected Impact</h2>
 <p class="">The gate blocks collection pressure, never escalation to a human. Tests cover latching, overrides, conflicting predictions, handoff failure and audit logging. Consent is specific and withdrawable; recordings are kept for a disclosed period and access is role-restricted. Data is never used for credit decisions. The brief treats emotion inference as sensitive; counsel confirms DPDP and RBI obligations.</p>
 <p class="">Expected impact: fewer distressed borrowers reach pressure, measured by post-flag violation (target zero) and missed-distress rate.</p></div>
-  <div class="player" data-key="p2"><span class="t cur">0:00</span><div class="bar"><div class="fill"></div></div><span class="t left">-0:00</span><div class="speeds"><button type="button" data-rate="1" class="on">1&times;</button><button type="button" data-rate="1.5">1.5&times;</button><button type="button" data-rate="2">2&times;</button></div></div>
   </div>
   <footer class="foot"><span>PRAKAMYA | SVARAGUARD | Round 1 Abstract</span><span>Page 2</span></footer>
 </section>
 <section class="page" id="page3">
-  <div class="topbar"><button class="listen" data-audio="p3" aria-label="Listen to this page"><svg class="arr" viewBox="0 0 60 12" aria-hidden="true"><path d="M0 6 H54" /><path d="M54 6 L46 1 M54 6 L46 11" /></svg><span class="tap">Tap to hear</span><span class="pill"><span class="play">&#9654;</span> Click here to listen: our team explains this</span></button><audio id="a-p3" preload="metadata" src="audio/p3_v2.wav"></audio></div>
+  <div class="topbar"><button class="listen" data-audio="p3" aria-label="Listen to this page"><svg class="arr" viewBox="0 0 60 12" aria-hidden="true"><path d="M0 6 H54" /><path d="M54 6 L46 1 M54 6 L46 11" /></svg><span class="tap">Tap to hear</span><span class="pill"><span class="play">&#9654;</span> Click here to listen: our team explains this</span></button><div class="ctl"><div class="player" data-key="p3" hidden><span class="t cur">0:00</span><div class="bar"><div class="fill"></div></div><span class="t left">-0:00</span><div class="speeds"><button type="button" data-rate="1" class="on">1&times;</button><button type="button" data-rate="1.5">1.5&times;</button><button type="button" data-rate="2">2&times;</button></div></div></div><audio id="a-p3" preload="metadata" src="audio/p3_v2.wav"></audio></div>
   <div class="content">
 <div class="glass fig"><h3>Architecture and User Flow</h3><img src="images/SvaraGuard_Voice_Intelligence_Architecture.png" alt="Architecture and User Flow"><p class="cap">User flow: a call starts, audio is analysed in 2-second windows, affect is estimated, the policy gate decides the action, and the audit closes the loop.</p><p class="cap">The deterministic safety gate sits outside the models, so no model output can override a collection action.</p></div>
 <div class="glass fig"><h3>Lexical-Invariance Training and Evaluation Pipeline</h3><img src="images/Holographic_Audio_Affect_Learning_Pipeline.png" alt="Lexical-Invariance Training and Evaluation Pipeline"><p class="cap">Training: matched-text pairs and a gradient-reversal lexical adversary, with speaker-disjoint splits.</p><p class="cap">Calibration uses a held-out split; evaluation runs on the untouched test set.</p></div>
 <div class="glass fig"><h3>Protection, Handoff, Streaming and Evaluation</h3><img src="images/Holographic_Protection_and_Evaluation_Framework.png" alt="Protection, Handoff, Streaming and Evaluation"><p class="cap">Protection: a distress flag latches the protected state; later calm predictions cannot clear it.</p><p class="cap">Only authorised human resolution clears it; streaming windows update every second.</p></div>
 <div class="glass refs"><h3>References</h3><p class="ref">[1] Cao, H., Cooper, D. G., Keutmann, M. K., Gur, R. C., Nenkova, A., &amp; Verma, R. (2014). CREMA-D: Crowd-sourced emotional multimodal actors dataset. <i>IEEE Transactions on Affective Computing</i>, 5(4), 377–390. doi:10.1109/TAFFC.2014.2336244</p><p class="ref">[2] Eyben, F., et al. (2016). The Geneva Minimalistic Acoustic Parameter Set (GeMAPS) for voice research and affective computing. <i>IEEE Transactions on Affective Computing</i>, 7(2), 190–202. doi:10.1109/TAFFC.2015.2457417</p><p class="ref">[3] Ganin, Y., et al. (2016). Domain-adversarial training of neural networks. <i>Journal of Machine Learning Research</i>, 17(59), 1–35.</p><p class="ref">[4] Guo, C., Pleiss, G., Sun, Y., &amp; Weinberger, K. Q. (2017). On calibration of modern neural networks. <i>Proceedings of ICML</i>, PMLR 70, 1321–1330.</p><p class="ref">[5] Lotfian, R., &amp; Busso, C. (2019). Building naturalistic emotionally balanced speech corpus by retrieving emotional speech from existing podcast recordings. <i>IEEE Transactions on Affective Computing</i>.</p><p class="ref">[6] Pešán, J., Kesiraju, S., Burget, L., &amp; Černocký, J. (2024). Beyond the labels: Unveiling text-dependency in paralinguistic speech recognition datasets. arXiv:2403.07767.</p></div>
-  <div class="player" data-key="p3"><span class="t cur">0:00</span><div class="bar"><div class="fill"></div></div><span class="t left">-0:00</span><div class="speeds"><button type="button" data-rate="1" class="on">1&times;</button><button type="button" data-rate="1.5">1.5&times;</button><button type="button" data-rate="2">2&times;</button></div></div>
   </div>
   <footer class="foot"><span>PRAKAMYA | SVARAGUARD | Round 1 Abstract</span><span>Page 3</span></footer>
 </section>
@@ -123,6 +123,8 @@ document.querySelectorAll('.listen').forEach(function (btn) {
       document.querySelectorAll('.listen').forEach(function (b) { b.classList.remove('playing'); });
       audio.play();
       btn.classList.add('playing');
+      var pl = document.querySelector('.player[data-key="' + btn.dataset.audio + '"]');
+      if (pl) pl.hidden = false;
     } else {
       audio.pause();
       btn.classList.remove('playing');
